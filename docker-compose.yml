@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: backend/.env
+        required: false
+    environment:
+      DATABASE_PATH: /data/bencinapp.db
+    volumes:
+      - bencinapp-data:/data
+    restart: unless-stopped
+
+volumes:
+  bencinapp-data:

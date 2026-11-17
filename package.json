@@ -1,0 +1,18 @@
+{
+  "name": "bencinapp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Precios de combustibles en Chile, con mapa y descuentos por tarjeta",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "test": "npm test -w backend && npm test -w frontend",
+    "sync": "npm run sync -w backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": { "node": ">=22.13" }
+}
